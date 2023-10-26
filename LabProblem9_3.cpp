@@ -13,7 +13,7 @@
 using namespace std;
 
 void displayRun(int values[], int size);
-
+bool hasRun(int values[], int size);
 
 int main(void) {
 	const int NUMBER_OF_SIDES = 6;
@@ -35,9 +35,23 @@ int main(void) {
 
 	displayRun(dice, NUMBER_OF_DICE);
 
+	if (hasRun(dice, NUMBER_OF_DICE)) {
+		cout << "\nHas Run";
+	}
 	return 0;
 }
 
+bool hasRun(int values[], int size) {
+	for (int i = 0; i < size; i++) {
+		if (i == size - 1)
+			break;
+		else if (values[i] == values[i + 1])
+			return true;
+		else
+			continue;
+	}
+	return false;
+}
 void displayRun(int values[], int size) {
 
 	for (int i = 0; i < size; i++) {
